@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="hello-cd" default="test">
+
+    <target name="test">
+        <exec command="phpunit --configuration '${project.basedir}/phpunit.xml'"
+            passthru="true"
+            checkreturn="true"
+            />
+    </target>
+</project>
