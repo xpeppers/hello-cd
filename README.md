@@ -1,5 +1,6 @@
 Hello CD
 ========
+[![Build Status](https://travis-ci.org/xpeppers/hello-cd.png?branch=master)](https://travis-ci.org/xpeppers/hello-cd)
 
 A simple PHP project used during continuous delivery workshops.
 
