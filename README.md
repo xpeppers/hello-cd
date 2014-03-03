@@ -14,14 +14,21 @@ Using the development VM
 ------------------------
 
     vagrant up
-    vagrant ssh  
+    vagrant ssh
 
 Installing dependencies
 -----------------------
 
     composer install --optimize-autoloader
-    
+
 Running tests
 -------------
 
     phing test
+
+Creating heroku app
+-------------------
+
+    heroku create --region eu --addons newrelic:standard,papertrail:choklad -a hello-cd
+    heroku ps:scale web=1 -a hello-cd
+
