@@ -29,6 +29,6 @@ Running tests
 Creating heroku app
 -------------------
 
-    heroku create --region eu --addons newrelic:standard,papertrail:choklad -a hello-cd
+    heroku create --buildpack https://github.com/CHH/heroku-buildpack-php --region eu --addons newrelic:standard,papertrail:choklad -a hello-cd
     heroku ps:scale web=1 -a hello-cd
 
