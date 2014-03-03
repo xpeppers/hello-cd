@@ -1,0 +1,15 @@
+language: php
+php:
+- 5.3
+- 5.4
+before_script:
+- curl -s http://getcomposer.org/installer | php
+- composer --no-dev --optimize-autoloader install
+script: phing test
+deploy:
+  provider: heroku
+  api_key:
+    secure: eBUoR4uBciz6VIyruuAAOAW02neeQ1fCaMdXZyJ7gRkYTBKHf+ZFYPIu1WvMOk/akRKYPX7FwW3Z2m7z4NBb/S1YXYGZesdQgebaJL20OzLxeyprvkGt6KRuULPBZvb78U9oxOVYTxlJNIlmq2AJ0ayV0uUYb5CxkmRt973sjTA=
+  app: hello-cd
+  on:
+    repo: xpeppers/hello-cd
