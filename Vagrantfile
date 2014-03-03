@@ -8,6 +8,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision :puppet do |puppet|
     puppet.manifests_path = "vagrant/puppet/manifests"
+    puppet.module_path = "vagrant/puppet/modules"
     puppet.options = ["--verbose"]
     puppet.manifest_file  = "base.pp"
   end

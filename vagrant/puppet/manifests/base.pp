@@ -1,18 +1,5 @@
 Exec { path => ['/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/'] }
 
-file { 'ondrej-list':
-  path    => '/etc/apt/sources.list.d/php5.sources.list',
-  content => 'deb http://ppa.launchpad.net/ondrej/php5-oldstable/ubuntu lucid main',
-  owner   => root,
-  group   => root,
-  mode    => 0644
-}
-
-exec { 'ondrej-apt-key':
-  command => 'sudo apt-key adv --keyserver keyserver.ubuntu.com --recv E5267A6C',
-  require => File['ondrej-list']
-}
-
 $packages = [
   'build-essential',
   'vim',
@@ -29,7 +16,6 @@ $packages = [
 
 exec { 'init-apt':
   command => 'apt-get update',
-  require => Exec['ondrej-apt-key']
 } ->
 package { $packages:
   ensure => 'installed'
@@ -56,3 +42,24 @@ file { 'path':
   group   => vagrant,
   mode    => 0644
 }
+
+class { 'apache':
+  mpm_module => 'prefork',
+  require => Exec['init-apt']
+}
+
+class { ['apache::mod::rewrite', 'apache::mod::php']:
+}
+
+apache::vhost { 'hello-cd.local':
+  port => '80',
+  override => 'All',
+  docroot => '/vagrant',
+  options => 'Indexes FollowSymLinks MultiViews'
+}3
+
+host { 'hello-cd.local':
+  ensure => 'present',
+  ip => '127.0.0.1'
+}
+
