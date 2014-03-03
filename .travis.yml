@@ -5,7 +5,7 @@ php:
 before_script:
 - curl -s http://getcomposer.org/installer | php
 - composer --no-dev --optimize-autoloader install
-script: phing test
+script: vendor/bin/phing test
 deploy:
   provider: heroku
   api_key:
