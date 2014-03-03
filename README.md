@@ -6,7 +6,8 @@ A simple PHP project used during continuous delivery workshops.
 Requirements
 ------------
 
-1. [VirtualBox](https://www.virtualbox.org)                                   2. [Vagrant](http://www.vagrantup.com) 
+1. [VirtualBox](https://www.virtualbox.org)
+2. [Vagrant](http://www.vagrantup.com) 
 
 Using the development VM
 ------------------------
