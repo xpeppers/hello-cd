@@ -56,7 +56,7 @@ apache::vhost { 'hello-cd.local':
   override => 'All',
   docroot => '/vagrant',
   options => 'Indexes FollowSymLinks MultiViews'
-}3
+}
 
 host { 'hello-cd.local':
   ensure => 'present',
