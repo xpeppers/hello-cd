@@ -3,7 +3,7 @@ php:
 - 5.3
 before_script:
 - curl -s http://getcomposer.org/installer | php
-- composer --no-dev --optimize-autoloader install
+- composer --optimize-autoloader install
 script: vendor/bin/phing test
 deploy:
   provider: heroku
